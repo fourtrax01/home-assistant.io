@@ -205,8 +205,10 @@ automation:
         to: '19'
         # many z-wave locks use Alarm Type 19 for 'Unlocked by Keypad'
     action:
-      - service: alarm_control_panel.alarm_disarm
-        entity_id: alarm_control_panel.house_alarm
+    - service: alarm_control_panel.alarm_disarm
+      data:
+        entity_id: alarm_control_panel.ha_alarm
+        code: !secret alarm_code
 ```
 
 Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pending Status
